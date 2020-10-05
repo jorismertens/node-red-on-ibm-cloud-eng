@@ -1,0 +1,355 @@
+[
+    {
+        "id": "269b39a3.096916",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "75cce778.71f11",
+        "type": "comment",
+        "z": "269b39a3.096916",
+        "name": "Logo & background image",
+        "info": "",
+        "x": 290,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "64cef032.cb276",
+        "type": "comment",
+        "z": "269b39a3.096916",
+        "name": "button section",
+        "info": "",
+        "x": 250,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1ef18b51.8756d5",
+        "type": "comment",
+        "z": "269b39a3.096916",
+        "name": "input section",
+        "info": "",
+        "x": 610,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "3300e65.fc7651a",
+        "type": "comment",
+        "z": "269b39a3.096916",
+        "name": "search section",
+        "info": "",
+        "x": 1340,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "23b8707.e2ff01",
+        "type": "http request",
+        "z": "269b39a3.096916",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "xxxx",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 810,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4984c4d2.d1782c",
+        "type": "function",
+        "z": "269b39a3.096916",
+        "name": "",
+        "func": "msg.payload = \"http://myzbox.ddns.net:65005/mainstoreapi/products/search/\" + msg.payload;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1230,
+        "y": 260,
+        "wires": [
+            [
+                "ed11348c.108578"
+            ]
+        ]
+    },
+    {
+        "id": "ed11348c.108578",
+        "type": "http request",
+        "z": "269b39a3.096916",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": true,
+        "url": "http://myzbox.ddns.net:65005/mainstoreapi/products/search/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1430,
+        "y": 260,
+        "wires": [
+            [
+                "f8a9f48a.e6d788"
+            ]
+        ]
+    },
+    {
+        "id": "e3ec034.a6b14",
+        "type": "ui_button",
+        "z": "269b39a3.096916",
+        "name": "",
+        "group": "c8080b8a.0d2e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "home",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 230,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "40260af5.c10fd4",
+        "type": "ui_button",
+        "z": "269b39a3.096916",
+        "name": "",
+        "group": "c8080b8a.0d2e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "about us",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 240,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2442ce4.922c08",
+        "type": "ui_button",
+        "z": "269b39a3.096916",
+        "name": "",
+        "group": "c8080b8a.0d2e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "search items price",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 270,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c669afde.ab607",
+        "type": "ui_button",
+        "z": "269b39a3.096916",
+        "name": "",
+        "group": "c8080b8a.0d2e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "email us",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 240,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ae212c78.f574d",
+        "type": "ui_text_input",
+        "z": "269b39a3.096916",
+        "name": "",
+        "label": "search item:",
+        "tooltip": "",
+        "group": "79af9115.f0eb5",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 1050,
+        "y": 260,
+        "wires": [
+            [
+                "4984c4d2.d1782c"
+            ]
+        ]
+    },
+    {
+        "id": "a4da0140.fc57a8",
+        "type": "ui_form",
+        "z": "269b39a3.096916",
+        "name": "",
+        "label": "Add new item",
+        "group": "70063fce.6e1ec",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "name",
+                "value": "",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "item",
+                "value": "",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "price",
+                "value": "",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 620,
+        "y": 260,
+        "wires": [
+            [
+                "23b8707.e2ff01"
+            ]
+        ]
+    },
+    {
+        "id": "1187b0b1.473427",
+        "type": "ui_template",
+        "z": "269b39a3.096916",
+        "group": "c8080b8a.0d2e",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "\n\n<style>\n.md-toolbar-tools{\n        background-image: url(\"https://github.com/jorismertens/Node-Red_API_Dashboard/blob/master/images/Reutilize_logo.png?raw=true\");\n        background-repeat: no-repeat;margin-left: 10px;\n        margin-left: 5;\n        background-size: 70px 40px;\n        background-position: 100px;\n     \n    }\n    .md-toolbar-tools h1{\n        text-align: right;\n        width: 250px;\n    }\n    \n    \n\n    \n    body {\n        background-image: url(\"https://github.com/jorismertens/Node-Red_API_Dashboard/blob/master/images/wallpaper.jpg?raw=true\");\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "x": 240,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8a9f48a.e6d788",
+        "type": "ui_template",
+        "z": "269b39a3.096916",
+        "group": "79af9115.f0eb5",
+        "name": "",
+        "order": 5,
+        "width": "6",
+        "height": "4",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1620,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8080b8a.0d2e",
+        "type": "ui_group",
+        "z": 0,
+        "name": "button area",
+        "tab": "e8d12391.222638",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "79af9115.f0eb5",
+        "type": "ui_group",
+        "z": 0,
+        "name": "chart area",
+        "tab": "e8d12391.222638",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "70063fce.6e1ec",
+        "type": "ui_group",
+        "z": 0,
+        "name": "text area",
+        "tab": "e8d12391.222638",
+        "order": 2,
+        "disp": false,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "e8d12391.222638",
+        "type": "ui_tab",
+        "z": 0,
+        "name": "Reutil-iZe",
+        "icon": "",
+        "disabled": false,
+        "hidden": false,
+        "info": "<style>\n    \n        background-image: url(\"https://seeklogo.com/images/P/partly-sunny-weather-symbo-logo-FE1CF4CAE5-seeklogo.com.gif\");\n        background-repeat: no-repeat;margin-left: 60px;\n        margin-left: 0;\n        background-size: 125px 39px;\n        background-position: 50px;\n        \n</style>"
+    }
+]
